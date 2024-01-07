@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Navigation from './Navigation';
+import CreditCard from './components/CreditCard';
+
+const LINKS = [
+  { label: 'Website', to: 'https://www.robinwieruch.de/' },
+  { label: 'Twitter', to: 'https://twitter.com/rwieruch' },
+];
+
+const cardInfo = [
+  {
+    name: "Suraj Thadarai",
+    expirationDate: "12/99",
+    creditCardNumber: "1234 5678 9101 9632",
+    bankName: "IDBI Bank Ltd"
+  },
+  {
+    name: "Neer Thadarai",
+    expirationDate: "12/99",
+    creditCardNumber: "9101 5678 1234 7412",
+    bankName: "HDFC Bank Ltd"
+  }
+]
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <Navigation links={LINKS} />
+        <div className='creditCardWrapper'>
+          <CreditCard cardInfo={cardInfo} />
+        </div>
+      </div>
+    </>
   );
 }
 
